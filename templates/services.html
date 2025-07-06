@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIML Recognition Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <section id="service" class="text-center py-5">
+        <h2 class="section-title mb-4">Our Recognition Services</h2>
+        <div class="container">
+            <div class="row g-4">
+                <!-- PDF Recognition -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card service-card" id="imgrecog">
+                      <a href="#pdfrecog">
+                        <img src="{{ url_for('static', filename='pdf.jpg' ) }}" alt="pdf Recognition" class="servimg">
+                      </a>
+                        <div class="card-body">
+                            <h3>PDF Recognition</h3>
+                            <p>A PDF Recognition is a tool or program that combines multiple PDF files into a single document. This is useful for organizing documents, reducing file clutter, and making sharing easier..</p>
+                            <button class="btn btn-primary" onclick="runScript()">Demo</button>
+                            <p id="output"></p>
+                            <script>
+                                function runScript() {
+                                    fetch('/run_pdf')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById("output").innerText = data;
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                }
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+    
+                
+                <!-- Gesture Recognition -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card service-card" id="gesturerecog">
+                      <a href="#gesturerecog">
+                        <img src="{{ url_for('static', filename='gesture_recog_img.avif') }}" alt="Gesture Recognition" class="servimg">
+                      </a>
+                        <div class="card-body">
+                            <h3>Gesture Recognition</h3>
+                            <p>Real-time gesture detection and interpretation.</p>
+                            <button class="btn btn-primary" onclick="runPythonScript()">Demo</button>
+                            <p id="output"></p>
+                            <script>
+                                function runPythonScript() {
+                                    fetch('/gesture')
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            document.getElementById("output").innerText = data;
+                                        })
+                                        .catch(error => console.error('Error:', error));
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!-- Handwriting Recognition -->
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>© 2025 AIML Recognition Platform. All Rights Reserved.</p>
+        <p><a href="#privacy" class="text-white">Privacy Policy</a> | <a href="#terms" class="text-white">Terms of Service</a></p>
+      </footer>
+    <script>
+        function goToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: "instant" });
+        }
+    </script>
+    
+      <div class="scroll-top"></div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> 
+      <script src="{{ url_for('static', filename='script.js')}}"></script>
+    
+    </body>
+    </html>

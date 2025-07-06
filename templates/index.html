@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIML Recognition Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="loading-overlay">
+    <div class="loader"></div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#home">AIML Recognition </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="goToSection('home')">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="goToSection('aboutus')">About us</a></li>
+
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+            <ul class="dropdown-menu">
+              
+               <li><a class="dropdown-item" href="#imgrecog">Image Recognition</a></li>
+              <li><a class="dropdown-item" href="#textrecog">Text Recognition</a></li>
+              <li><a class="dropdown-item" href="#gesturerecog">Gesture Recognition</a></li>
+              <li><a class="dropdown-item" href="#handwritingrecog">Handwriting Recognition</a></li>
+              <li><a class="dropdown-item" href="#fakenewsrecog">Fake News Recognition</a></li> -->
+            <!-- </ul>
+          </li> -->
+
+          <li class="nav-item ">
+            <a class="nav-link " href="/services" >Services</a>
+            
+        </li>
+        
+         <li class="nav-item"><a class="nav-link" href="/log_in" onclick="goToSection('login')">Log in</a></li>
+         <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="goToSection('contact')">Contact</a></li>
+         <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="goToSection('resdev')">R&D</a></li>
+         <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="goToSection('blog')">Blog</a></li>
+
+          <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resdev">R&D</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <section id="home" class="text-center text-white">
+    <div class="home-content">
+      <div class="home-text">
+        <h1 class="mb-4">Welcome to AIML Recognition Platform</h1>
+        <p class="lead mb-4">Transforming the future with advanced AI and ML solutions for recognition tasks.</p>
+        <div class="features-list mb-4">
+          <div class="feature-item">State-of-the-art recognition algorithms</div>
+          <div class="feature-item">Real-time processing capabilities</div>
+          <div class="feature-item">Enterprise-grade security</div>
+        </div>
+        <a href="#service" class="btn btn-light btn-lg me-3">Get Started</a>
+        <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+      </div>
+      <div class="home-img">
+        <img src="{{ url_for('static', filename='AI-revolutionimage.webp') }}" alt="AI Technology" class="img-fluid">
+      </div>
+    </div> 
+ 
+ <!-- Wave Design -->
+<div class="wave-container">
+  <svg viewBox="0 0 1440 320">
+      <path fill="#bfc6ff" fill-opacity="1" 
+          d="M0,256L80,224C160,192,320,128,480,112C640,96,800,128,960,144C1120,160,1280,160,1360,160L1440,160L1440,320L0,320Z">
+      </path>
+  </svg>
+</div>
+</section>
+
+  <section id="aboutus" class="text-center">
+    <div class="container">
+      <h2><b>How It Works</b></h2>
+      <div class="steps-container">
+        <div class="step" data-aos="fade-up">
+          <div class="step-number">1</div>
+          <h3>Upload Your Data</h3>
+          <p>Simply upload your content - whether it's images, text, or video - to our secure platform.</p>
+        </div>
+        <div class="step" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-number">2</div>
+          <h3>AI Processing</h3>
+          <p>Our advanced AI algorithms analyze and process your data in real-time.</p>
+        </div>
+        <div class="step" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-number">3</div>
+          <h3>Get Results</h3>
+          <p>Receive accurate recognition results and insights instantly.</p>
+        </div>
+      </div>
+    </div>
+</section>
+  <section id="resdev" class="text-center py-5">
+    <div class="container">
+      <h2 class="mb-4 fw-bold">Research & Development</h2>
+      <p class="mb-5">Pioneering advancements in AI and ML to shape the future.</p>
+      
+      <div class="row">
+        <!-- Latest Research Card -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-lg border-0 p-4 h-100">
+            <div class="card-body">
+              <div class="mb-3">
+                <i class="fas fa-microscope fa-3x text-primary"></i>
+              </div>
+              <h3 class="card-title">Latest Research</h3>
+              <p class="card-text text-muted">Exploring cutting-edge AI technologies and methodologies.</p>
+              <a href="#" class="btn btn-primary mt-2">Learn More</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Innovation Lab Card -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-lg border-0 p-4 h-100">
+            <div class="card-body">
+              <div class="mb-3">
+                <i class="fas fa-lightbulb fa-3x text-warning"></i>
+              </div>
+              <h3 class="card-title">Innovation Lab</h3>
+              <p class="card-text text-muted">Developing next-generation recognition solutions.</p>
+              <a href="#" class="btn btn-warning mt-2 text-white">Discover More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faqs" class="text-center">
+    <div class="container">
+        <h2 class="mb-5">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                        How does your AI-powered recognition system work?
+                    </button>
+                </h2>
+                <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our AI leverages deep learning models to analyze images, text, and video streams in real-time, delivering fast and precise recognition results.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                        How do you ensure the security of my uploaded data?
+                    </button>
+                </h2>
+                <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We use industry-leading encryption protocols and GDPR-compliant security measures to safeguard all user data.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                        What formats of data can your platform process?
+                    </button>
+                </h2>
+                <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our system supports various formats, including images (JPG, PNG), documents (PDF, TXT), and videos (MP4, AVI) for recognition and analysis.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4">
+                        What is the typical processing time for AI analysis?
+                    </button>
+                </h2>
+                <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The processing time varies depending on the complexity of the data, but most analyses are completed within a few seconds to a minute.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq5">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5">
+                        Can I integrate your AI recognition into my existing applications?
+                    </button>
+                </h2>
+                <div id="faqCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Absolutely! We provide RESTful APIs and SDKs to seamlessly integrate our AI recognition technology into your web or mobile applications.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.getElementById("loginBtn").addEventListener("click", function() {
+        document.getElementById("login").scrollIntoView({ behavior: "smooth" });
+    });
+</script>
+  
+<section id="contact" class="text-center py-5">
+  <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-8">
+              <div class="contact-form p-4 rounded">
+                  <form id="contactForm">
+                      <div class="mb-3">
+                          <input type="text" class="form-control custom-input" placeholder="Your Name" required>
+                      </div>
+                      <div class="mb-3">
+                          <input type="email" class="form-control custom-input" placeholder="Your Email" required>
+                      </div>
+                      <div class="mb-3">
+                          <textarea class="form-control custom-input" rows="5" placeholder="Your Message" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section id="team" class="text-center">
+  <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <div class="team-container">
+
+          <!-- Devyani Lanjewar -->
+          <div class="team-card">
+              <div class="card-header">
+                  <img src="{{ url_for('static', filename='IMG-20240229-WA0121.jpg') }}" alt="Devyani Lanjewar">
+              </div>
+              <div class="card-body">
+                  <h4>Devyani Lanjewar</h4>
+                  <p class="role">Front-end Web Developer</p>
+                  <p>Passionate about crafting responsive and interactive UI/UX.</p>
+                  <div class="skills">
+                      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+                  </div>
+                  <div class="social-icons">
+                      <a href="https://www.linkedin.com/in/devyani-lanjewar-a9a055258" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                        <i class="fa-brands fa-linkedin"></i>
+                      </a>
+                      <a href="https://github.com/devyani123422" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                        <i class="fa-brands fa-github"></i></a>
+                  </div>
+                  <button class="contact-btn" onclick="contactMember('devyani@example.com')">Contact</button>
+              </div>
+          </div>
+
+          <!-- Shubhjit Das -->
+          <div class="team-card">
+              <div class="card-header">
+                  <img src="{{ url_for('static', filename='Shubhjit_img.jpg') }}" alt="Shubhjit Das">
+              </div>
+              <div class="card-body">
+                  <h4>Shubhjit Das</h4>
+                  <p class="role">Software Developer</p>
+                  <p>Expert in backend development and database management.</p>
+                  <div class="skills">
+                      <span>Java</span><span>SQL</span><span>MongoDB</span><span>Node.js</span>
+                  </div>
+                  <div class="social-icons">
+                      <a href="https://www.linkedin.com/in/shubhjit-das-b78093258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                        <i class="fab fa-linkedin"></i></a>
+                      <a href="https://github.com/shubhjit" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                  </div>
+                  <button class="contact-btn" onclick="contactMember('shubhjit@example.com')">Contact</button>
+              </div>
+          </div>
+
+          <!-- Payal Bijewar -->
+          <div class="team-card">
+              <div class="card-header">
+                  <img src="{{ url_for('static', filename='Payal_img.jpg') }}" alt="Payal Bijewar">
+              </div>
+              <div class="card-body">
+                  <h4>Payal Bijewar</h4>
+                  <p class="role">UI/UX Designer | Team Leader</p>
+                  <p>Specializes in user-centered design and prototyping.</p>
+                  <div class="skills">
+                      <span>Figma</span><span>Adobe XD</span><span>CSS</span><span>Bootstrap</span>
+                  </div>
+                  <div class="social-icons">
+                      <a href="https://www.linkedin.com/in/payal-bijewar-aba7b0258/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                        <i class="fab fa-linkedin"></i></a>
+                      <a href="https://github.com/payalbijewar" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                        <i class="fab fa-github"></i></a>
+                  </div>
+                  <button class="contact-btn" onclick="contactMember('payal@example.com')">Contact</button>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</section>
+
+
+<section id="blog" class="text-center">
+  <div class="container">
+      <h2 class="section-title">Latest Blog Posts</h2>
+      <div class="blog-container">
+          <div class="blog-card">
+              <div class="blog-content">
+                  <h3>Understanding AI Recognition</h3>
+                  <p>Explore the fundamentals of AI recognition technologies and their applications in various fields.</p>
+                  <a href="#" class="read-more">Read More</a>
+              </div>
+          </div>
+          <div class="blog-card">
+              <div class="blog-content">
+                  <h3>Future of Machine Learning</h3>
+                  <p>Insights into the future trends of machine learning and its impact on industries.</p>
+                  <a href="#" class="read-more">Read More</a>
+              </div>
+          </div>
+          <div class="blog-card">
+              <div class="blog-content">
+                  <h3>Data Security in AI</h3>
+                  <p>Learn about the importance of data security in AI applications and best practices.</p>
+                  <a href="#" class="read-more">Read More</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+  
+  <footer class="bg-dark text-white text-center py-4">
+    <p>© 2025 AIML Recognition Platform. All Rights Reserved.</p>
+    <p><a href="#privacy" class="text-white">Privacy Policy</a> | <a href="#terms" class="text-white">Terms of Service</a></p>
+  </footer>
+<script>
+    function goToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({ behavior: "instant" });
+    }
+</script>
+
+  <div class="scroll-top"></div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> 
+  <script src="{{ url_for('static', filename='script.js')}}"></script>
+
+</body>
+</html>
